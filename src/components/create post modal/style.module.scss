@@ -1,0 +1,50 @@
+.createPostContainer {
+    padding: 20px;
+    background-color: rgb(235, 235, 235);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 95%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow: auto;
+
+    textarea {
+        max-width: 100%;
+        min-height: 100px;
+    }
+    .charCount {
+        width: 100%;
+        text-align: right;
+        font-size: 0.8rem;
+        .dangerMessage {
+            color: var(--danger);
+        }
+    }
+    .postButtonGroup {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .post {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+
+            &:active {
+                box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+            }
+        }
+        .cancel {
+            background-color: var(--danger);
+            color: white;
+            border: none;
+            box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+
+            &:active {
+                box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+            }
+        }
+    }
+}

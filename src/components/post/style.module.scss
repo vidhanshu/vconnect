@@ -1,5 +1,5 @@
 .postContainer {
-    margin: 40px 0px;
+    margin: 10px 0px 40px 0px;
     border: .2px solid grey;
     border-radius: 3px;
     .postHeader {
@@ -14,12 +14,17 @@
         .postOwnerInfo {
             display: flex;
             justify-content: space-between;
+            gap: 10px;
             align-items: center;
             width: 100%;
         }
     }
     .postDescription {
         padding: 20px 10px;
+        p{
+            line-break: anywhere;
+            line-height: 1.5;
+        }
     }
     .postImage {
         width: 100%;

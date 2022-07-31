@@ -1,20 +1,29 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-button{
-    padding:5px 10px;
+button {
+    padding: 5px 10px;
     cursor: pointer;
 }
 
-html{
+input,
+textarea {
+    padding: 5px 10px;
+}
+html {
     font-size: 69.7%;
 }
 
-@media screen and (min-width:400px) {
-    html{
+@media screen and (min-width: 500px) {
+    html {
         font-size: 100%;
     }
+}
+
+:root {
+    --primary: rgb(0, 68, 253);
+    --danger: red;
 }

@@ -4,17 +4,17 @@ import { AiFillLike, AiOutlineComment, AiOutlineLike } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { valueShortener } from "../../utils/utils";
 
-function Post(props) {
+function Post({ post, disable = false }) {
   const {
     name = 'vidhanshu borade',
     avatar = '',
     image,
     text = '',
     date = '2020-01-01 at 10:00pm',
-    likes = 1,
-    comments = 10000,
+    likes = 0,
+    comments = 0,
     id = 1
-  } = props.post;
+  } = post;
   const [liked, setLiked] = React.useState(false);
   const [likesCount, setLikes] = React.useState(likes);
 
@@ -34,7 +34,12 @@ function Post(props) {
       </div>
       {/* post description */}
       <div className={styles.postDescription}>
-        {text}
+        <p dangerouslySetInnerHTML={
+          {
+            __html: text
+          }
+        }>
+        </p>
       </div>
       {/* post image */}
       {image &&
@@ -46,12 +51,16 @@ function Post(props) {
       <div className={styles.postFooter}>
         <p>{valueShortener(likesCount)} {!liked
           ? <AiOutlineLike onClick={() => {
-            setLiked(true);
-            setLikes(likesCount + 1);
+            if (!disable) {
+              setLiked(true);
+              setLikes(likesCount + 1);
+            }
           }} />
           : <AiFillLike onClick={() => {
-            setLiked(false);
-            setLikes(likesCount - 1);
+            if (!disable) {
+              setLiked(false);
+              setLikes(likesCount - 1);
+            }
           }} />}</p>
         <p>{valueShortener(comments)} <AiOutlineComment /></p>
       </div>
