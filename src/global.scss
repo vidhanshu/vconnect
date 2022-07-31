@@ -8,3 +8,13 @@ button{
     padding:5px 10px;
     cursor: pointer;
 }
+
+html{
+    font-size: 69.7%;
+}
+
+@media screen and (min-width:400px) {
+    html{
+        font-size: 100%;
+    }
+}
