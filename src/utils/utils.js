@@ -20,6 +20,7 @@ const doubleDigit = (value) => {
         return value;
     }
 }
+
 export const getFormattedDate = () => {
     let date = new Date();
     let year = doubleDigit(date.getFullYear());
@@ -27,5 +28,13 @@ export const getFormattedDate = () => {
     let day = doubleDigit(date.getDate());
     let hr = doubleDigit(date.getHours());
     let mn = doubleDigit(date.getMinutes());
-    return `${day}-${month}-${year} at ${hr}:${mn} AM`
+    let meridian = hr > 12 ? 'PM' : 'AM';
+    if (hr > 12) {
+        hr = hr - 12;
+    }
+    return `${day}-${month}-${year} at ${hr}:${mn} ${meridian}`
+}
+
+export const checkIfEmpty = (value = []) => {
+    return value.some(item => item === '' || item === undefined || item === null);
 }
