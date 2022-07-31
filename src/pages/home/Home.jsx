@@ -2,9 +2,8 @@ import styles from "./style.module.scss";
 import { createContext, useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { CreatePost, Header, ModalContainer, Posts, Section, WebsiteLayout } from "../../components";
+import { PostEditorModal, Posts, Section, WebsiteLayout } from "../../components";
 import { POSTS } from "../../constant/constant";
-import { getRandomNumber } from "../../utils/utils";
 
 export const postsContext = createContext(POSTS);
 
@@ -22,9 +21,7 @@ function Home() {
   return (
     <postsContext.Provider value={context_to_be_passed}>
       {modal &&
-        <ModalContainer>
-          {<CreatePost cancel={() => setModal(false)} avatar={`https://randomuser.me/api/portraits/men/${getRandomNumber(0, 99)}.jpg`} />}
-        </ModalContainer>
+        <PostEditorModal setModal={setModal} />
       }
       <WebsiteLayout>
         <div className={styles.homeContainer}>

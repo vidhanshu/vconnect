@@ -8,7 +8,7 @@ import { getRandomNumber } from "./utils/utils";
 function App() {
     const [user, setUser] = React.useState(
         {
-            id: '135jfh',
+            _id: '135jfh',
             name: "John Doe1",
             avatar: `https://randomuser.me/api/portraits/men/${getRandomNumber(0, 99)}.jpg`,
             country: 'India',

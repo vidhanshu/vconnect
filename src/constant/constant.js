@@ -9,24 +9,27 @@ const POSTS = [
         date: '2020-01-01 at 10:00 am',
         likes: 10,
         comments: 2,
+        owner: '135kfh',
     },
     {
-        name: 'david wars',
+        name: 'vidhanshu borade',
         avatar: `https://randomuser.me/api/portraits/men/${getRandomNumber(0, 99)}.jpg`,
         image: 'https://th.bing.com/th/id/OIP.zsEgRepQ6Uh5OYkkhJyn2gHaE5?pid=ImgDet&rs=1',
         text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.',
         date: '2020-01-01 at 10:00 am',
         likes: 10,
         comments: 2,
+        owner: '135jfh'
     },
     {
-        name: 'david wars',
+        name: 'vidhanshu borade',
         avatar: `https://randomuser.me/api/portraits/men/${getRandomNumber(0, 99)}.jpg`,
         image: 'https://th.bing.com/th/id/OIP.zsEgRepQ6Uh5OYkkhJyn2gHaE5?pid=ImgDet&rs=1',
         text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.',
         date: '2020-01-01 at 10:00 am',
         likes: 10,
         comments: 2,
+        owner: '135jfh'
     }
 ];
 

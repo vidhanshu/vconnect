@@ -44,7 +44,7 @@ function Auth() {
                   </tr>
                   <tr>
                     <td colSpan={2}>
-                      <p>Don't have an account <span onClick={() => setIsLogin(false)} className={styles.link}>register here</span></p>
+                      <p>Don't have an account? <span onClick={() => setIsLogin(false)} className={styles.link}>register here</span></p>
                     </td>
                   </tr>
                 </tbody>
@@ -86,6 +86,14 @@ function Auth() {
                     </td>
                   </tr>
                   <tr>
+                    <td>
+                      <label htmlFor="country">Country</label>
+                    </td>
+                    <td>
+                      <input type="country" id="country" />
+                    </td>
+                  </tr>
+                  <tr>
                     <td colSpan={2}>
                       <button onClick={(evt) => {
                         evt.preventDefault();
@@ -95,7 +103,7 @@ function Auth() {
                   </tr>
                   <tr>
                     <td colSpan={2}>
-                      <p>Already have an account <span onClick={() => setIsLogin(true)} className={styles.link}>sign here</span></p>
+                      <p>Already have an account? <span onClick={() => setIsLogin(true)} className={styles.link}>sign here</span></p>
                     </td>
                   </tr>
                 </tbody>
