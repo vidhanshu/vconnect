@@ -17,6 +17,10 @@
             height: 100%;
         }
     }
+    .authButtons{
+        display: flex;
+        gap: 10px;
+    }
     .profile {
         width: 30px;
         height: 30px;

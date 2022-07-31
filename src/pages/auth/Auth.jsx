@@ -1,8 +1,10 @@
 import React from "react";
 import styles from "./style.module.scss";
+import { useNavigate } from "react-router-dom";
 import { Section } from "../../components";
 
 function Auth() {
+  const navigate = useNavigate();
   const [isLogin, setIsLogin] = React.useState(true);
   return (
     <div className={styles.authContainer}>
@@ -34,7 +36,10 @@ function Auth() {
                   </tr>
                   <tr>
                     <td colSpan={2}>
-                      <button className={styles.btn}>Sign In</button>
+                      <button onClick={(evt) => {
+                        evt.preventDefault();
+                        navigate("/");
+                      }} className={styles.btn}>Sign In</button>
                     </td>
                   </tr>
                   <tr>
@@ -82,7 +87,10 @@ function Auth() {
                   </tr>
                   <tr>
                     <td colSpan={2}>
-                      <button className={styles.btn}>Sign Up</button>
+                      <button onClick={(evt) => {
+                        evt.preventDefault();
+                        navigate("/");
+                      }} className={styles.btn}>Sign Up</button>
                     </td>
                   </tr>
                   <tr>

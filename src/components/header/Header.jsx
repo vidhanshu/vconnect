@@ -13,11 +13,16 @@ function Header({ id }) {
                         <img src='/images/logo.png' alt="vconnect logo" />
                     </div>
                 </Link>
-                <Link to={`/profile/${user.id}`}>
-                    <div className={styles.profile}>
-                        <img src='/images/profile.jpg' alt="profile" />
-                    </div>
-                </Link>
+                <div className={styles.authButtons}>
+                    <Link to='/auth'>
+                        <button>Logout</button>
+                    </Link>
+                    <Link to={`/profile/${user.id}`}>
+                        <div className={styles.profile}>
+                            <img src='/images/profile.jpg' alt="profile" />
+                        </div>
+                    </Link>
+                </div>
             </div>
         </header>
     )

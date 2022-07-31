@@ -1,4 +1,5 @@
 .authContainer {
+    background-color: var(--primary);
     .logo {
         display: flex;
         justify-content: start;
@@ -7,7 +8,7 @@
         gap: 2px;
         font-family: verdana;
         font-weight: normal;
-        color: rgb(59, 59, 59);
+        color: rgb(255, 255, 255);
         img {
             width: 30px;
             height: 30px;
