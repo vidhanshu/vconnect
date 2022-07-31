@@ -3,7 +3,7 @@ import styles from "./style.module.scss";
 
 function Section(props) {
     return (
-        <div className={styles.section}>
+        <div className={`${styles.section} ${props.className}`}>
             {props.children}
         </div>
     )

@@ -4,5 +4,6 @@ import ModalContainer from "./modal container/ModalContainer";
 import Post from "./post/Post";
 import Posts from "./posts/Posts";
 import Section from "./Section/Secton";
+import WebsiteLayout from "./website layout/WebsiteLayout";
 
-export { Header, Section, Post, Posts, ModalContainer, CreatePost };
+export { WebsiteLayout,Header, Section, Post, Posts, ModalContainer, CreatePost };

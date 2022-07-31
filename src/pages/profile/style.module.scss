@@ -1,0 +1,58 @@
+.profileContainer {
+    .profile {
+        .backgroundImage {
+            background-image: url(https://professionalservicesng.com/wp-content/uploads/2020/05/bgimage-768x280.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            height: 200px;
+            position: relative;
+            .avatar {
+                background-color: white;
+                border: 4px solid var(--primary);
+                padding: 2px;
+                border-radius: 50%;
+                width: fit-content;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                bottom: -20px;
+                left: 0;
+                margin: auto;
+                right: 0;
+                img {
+                    border-radius: 50%;
+                    width: 100px;
+                    height: 100px;
+                }
+            }
+        }
+    }
+    .profileInfo{
+        width: fit-content;
+        margin: auto;
+        margin-top: 30px;
+        font-size: 1.5rem;
+        table{
+            margin: auto;
+            border-collapse: collapse;
+            
+            td,th{
+                padding: 10px 20px;
+
+                img{
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                }
+            }
+        }            
+    }
+}
+
+.postsContainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 10px;
+}

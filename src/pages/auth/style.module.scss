@@ -1,0 +1,58 @@
+.authContainer {
+    .logo {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        width: fit-content;
+        gap: 2px;
+        font-family: verdana;
+        font-weight: normal;
+        color: rgb(59, 59, 59);
+        img {
+            width: 30px;
+            height: 30px;
+        }
+    }
+    .formContainer {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+
+        .form {
+            h2 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            box-shadow:5px 5px rgba(0, 0, 0, 0.361);
+            background-color: rgb(231, 231, 231);
+            padding: 20px;
+            width: fit-content;
+            table {
+                td {
+                    padding: 10px;
+                }
+            }
+            .btn {
+                width: 100%;
+                margin-top: 20px;
+                background-color: var(--primary);
+                color: white;
+                border: none;
+                box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+
+                &:active {
+                    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+                }
+            }
+            .link{
+                margin-left: 10px;
+                color: var(--primary);
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+    }
+}
