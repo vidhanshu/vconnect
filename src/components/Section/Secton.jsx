@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "./style.module.scss";
 
-function Container(props) {
+function Section(props) {
     return (
-        <div className={styles.container}>
+        <div className={styles.section}>
             {props.children}
         </div>
     )
 }
 
-export default Container
+export default Section
