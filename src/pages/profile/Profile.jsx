@@ -6,18 +6,22 @@ import { getUser } from "../../api/user";
 import { Section, WebsiteLayout } from "../../components";
 import { Posts } from "../../components";
 import { POSTS } from "../../constant/constant";
+import { useGlobalContext } from "../../context/useGlobalContext";
 
 function Profile() {
   const { id } = useParams();
   const [userData, setUserData] = React.useState({});
+  const { setLoading } = useGlobalContext();
   useEffect(() => {
     getUserData();
   }, [])
 
   const getUserData = async () => {
+    setLoading(true);
     const user = await getUser(id);
+    setLoading(false);
     if (!user) {
-      // window.location.href = '/';
+      window.location.href = '/';
     } else {
       setUserData(user);
     }

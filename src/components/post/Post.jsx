@@ -15,7 +15,7 @@ function Post({ post, disable = false, option = false }) {
     date = '2020-01-01 at 10:00pm',
     likes = 0,
     comments = 0,
-    id = 1
+    _id = 1
   } = post;
   const [liked, setLiked] = React.useState(false);
   const [likesCount, setLikes] = React.useState(likes);
@@ -33,11 +33,11 @@ function Post({ post, disable = false, option = false }) {
       }
       {/* post header */}
       <div className={styles.postHeader}>
-        <Link to={`/profile/${id}`}>
+        <Link to={`/profile/${_id}`}>
           <img src={avatar} alt="" />
         </Link>
         <div className={styles.postOwnerInfo}>
-          <Link to={`/profile/${id}`}>
+          <Link to={`/profile/${_id}`}>
             <h3>{name}</h3>
           </Link>
           <p>{date}</p>
