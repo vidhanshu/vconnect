@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./style.module.scss";
-import { useNavigate } from "react-router-dom";
 import { login, register } from "../../api/user";
 import { Section } from "../../components";
 import { useGlobalContext } from "../../context/useGlobalContext";
