@@ -6,7 +6,6 @@ import { Section } from "../../components";
 import { useGlobalContext } from "../../context/useGlobalContext";
 
 function Auth() {
-  const navigate = useNavigate();
   const [isLogin, setIsLogin] = React.useState(true);
   const [email, setEmail] = React.useState("");
   const [name, setName] = React.useState('')
@@ -16,7 +15,15 @@ function Auth() {
 
   const handleLogin = async (evt) => {
     evt.preventDefault();
-
+    setLoading(true);
+    const user = await login({email, password});
+    setLoading(false);
+    if (user) {
+      setUser(user);
+      localStorage.setItem('auth', JSON.stringify(user));
+      return window.location.href = '/';
+    }
+    alert("Login failed");
   }
 
   const handleRegister = async (evt) => {

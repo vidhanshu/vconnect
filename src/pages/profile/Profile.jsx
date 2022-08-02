@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./style.module.scss";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { get_posts_by_user } from "../../api/post";
 import { getUser } from "../../api/user";
 import { Section, WebsiteLayout } from "../../components";
 import { Posts } from "../../components";
@@ -11,7 +12,9 @@ import { useGlobalContext } from "../../context/useGlobalContext";
 function Profile() {
   const { id } = useParams();
   const [userData, setUserData] = React.useState({});
+  const [posts,setPosts] = React.useState([]);
   const { setLoading } = useGlobalContext();
+
   useEffect(() => {
     getUserData();
   }, [])
@@ -26,6 +29,18 @@ function Profile() {
       setUserData(user);
     }
   }
+
+  useEffect(() => {
+    getPosts();
+  }, []);
+
+  const getPosts = async () => {
+    const posts = await get_posts_by_user(id);
+    if (posts) {
+      setPosts(posts);
+    }
+  }
+
   return (
     <WebsiteLayout>
       <div className={styles.profileContainer}>
@@ -55,8 +70,8 @@ function Profile() {
       <Section className={styles.profilePosts}>
         <h2><u>Posts</u></h2>
         {
-          POSTS.length
-            ? <Posts className={styles.postsContainer} posts={POSTS} />
+          posts.length
+            ? <Posts className={styles.postsContainer} posts={posts} />
             : <h1 className={styles.noPosts}>No posts yet</h1>
         }
       </Section>
