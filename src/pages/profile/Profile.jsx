@@ -1,14 +1,27 @@
 import React from "react";
 import styles from "./style.module.scss";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { getUser } from "../../api/user";
 import { Section, WebsiteLayout } from "../../components";
 import { Posts } from "../../components";
 import { POSTS } from "../../constant/constant";
-import { useGlobalContext } from "../../context/useGlobalContext";
 
 function Profile() {
   const { id } = useParams();
-  const { user } = useGlobalContext();
+  const [userData, setUserData] = React.useState({});
+  useEffect(() => {
+    getUserData();
+  }, [])
+
+  const getUserData = async () => {
+    const user = await getUser(id);
+    if (!user) {
+      // window.location.href = '/';
+    } else {
+      setUserData(user);
+    }
+  }
   return (
     <WebsiteLayout>
       <div className={styles.profileContainer}>
@@ -24,12 +37,12 @@ function Profile() {
             <tbody>
               <tr>
                 <th>Name</th>
-                <td>{user.name}</td>
+                <td>{userData?.name}</td>
               </tr>
               <tr>
                 <th>Country</th>
-                <td>{user.country}</td>
-                <td><img src={user.country_flag} alt="" /> </td>
+                <td>{userData?.country}</td>
+                <td><img src={`https://countryflagsapi.com/png/${userData?.country}`} alt="" /> </td>
               </tr>
             </tbody>
           </table>
@@ -37,10 +50,14 @@ function Profile() {
       </div>
       <Section className={styles.profilePosts}>
         <h2><u>Posts</u></h2>
-        <Posts className={styles.postsContainer} posts={POSTS} />
+        {
+          POSTS.length
+            ? <Posts className={styles.postsContainer} posts={POSTS} />
+            : <h1 className={styles.noPosts}>No posts yet</h1>
+        }
       </Section>
     </WebsiteLayout>
   )
 }
 
-export default Profile
+export default Profile;

@@ -1,11 +1,36 @@
 import React from "react";
 import styles from "./style.module.scss";
 import { useNavigate } from "react-router-dom";
+import { login, register } from "../../api/user";
 import { Section } from "../../components";
+import { useGlobalContext } from "../../context/useGlobalContext";
 
 function Auth() {
   const navigate = useNavigate();
   const [isLogin, setIsLogin] = React.useState(true);
+  const [email, setEmail] = React.useState("");
+  const [name, setName] = React.useState('')
+  const [password, setPassword] = React.useState("");
+  const [country, setCountry] = React.useState("");
+  const { setLoading, setUser } = useGlobalContext();
+
+  const handleLogin = async (evt) => {
+    evt.preventDefault();
+
+  }
+
+  const handleRegister = async (evt) => {
+    evt.preventDefault();
+    setLoading(true);
+    const user = await register({ name, email, password, country });
+    setLoading(false);
+    if (user) {
+      localStorage.setItem('auth', JSON.stringify(user));
+      return window.location.href = '/';
+    }
+    alert('Something went wrong!')
+  }
+
   return (
     <div className={styles.authContainer}>
       {isLogin
@@ -23,7 +48,7 @@ function Auth() {
                       <label htmlFor="email">Email</label>
                     </td>
                     <td>
-                      <input type="email" id="email" />
+                      <input value={email} type="email" id="email" onChange={(evt) => setEmail(evt.target.value)} />
                     </td>
                   </tr>
                   <tr>
@@ -31,15 +56,12 @@ function Auth() {
                       <label htmlFor="password">Password</label>
                     </td>
                     <td>
-                      <input type="password" id="password" />
+                      <input value={password} type="password" id="password" onChange={(evt) => setPassword(evt.target.value)} />
                     </td>
                   </tr>
                   <tr>
                     <td colSpan={2}>
-                      <button onClick={(evt) => {
-                        evt.preventDefault();
-                        navigate("/");
-                      }} className={styles.btn}>Sign In</button>
+                      <button onClick={handleLogin} className={styles.btn}>Sign In</button>
                     </td>
                   </tr>
                   <tr>
@@ -66,7 +88,7 @@ function Auth() {
                       <label htmlFor="name">Name</label>
                     </td>
                     <td>
-                      <input type="name" id="name" />
+                      <input value={name} type="name" id="name" onChange={(evt) => setName(evt.target.value)} />
                     </td>
                   </tr>
                   <tr>
@@ -74,7 +96,7 @@ function Auth() {
                       <label htmlFor="email">Email</label>
                     </td>
                     <td>
-                      <input type="email" id="email" />
+                      <input value={email} type="email" id="email" onChange={(evt) => setEmail(evt.target.value)} />
                     </td>
                   </tr>
                   <tr>
@@ -82,7 +104,7 @@ function Auth() {
                       <label htmlFor="password">Password</label>
                     </td>
                     <td>
-                      <input type="password" id="password" />
+                      <input value={password} type="password" id="password" onChange={(evt) => setPassword(evt.target.value)} />
                     </td>
                   </tr>
                   <tr>
@@ -90,15 +112,12 @@ function Auth() {
                       <label htmlFor="country">Country</label>
                     </td>
                     <td>
-                      <input type="country" id="country" />
+                      <input value={country} type="country" id="country" onChange={evt => setCountry(evt.target.value)} />
                     </td>
                   </tr>
                   <tr>
                     <td colSpan={2}>
-                      <button onClick={(evt) => {
-                        evt.preventDefault();
-                        navigate("/");
-                      }} className={styles.btn}>Sign Up</button>
+                      <button onClick={handleRegister} className={styles.btn}>Sign Up</button>
                     </td>
                   </tr>
                   <tr>

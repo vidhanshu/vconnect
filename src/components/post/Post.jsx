@@ -11,7 +11,7 @@ function Post({ post, disable = false, option = false }) {
     name = 'vidhanshu borade',
     avatar = '',
     image,
-    text = '',
+    description = '',
     date = '2020-01-01 at 10:00pm',
     likes = 0,
     comments = 0,
@@ -55,7 +55,7 @@ function Post({ post, disable = false, option = false }) {
       <div className={styles.postDescription}>
         <p dangerouslySetInnerHTML={
           {
-            __html: text
+            __html: description
           }
         }>
         </p>

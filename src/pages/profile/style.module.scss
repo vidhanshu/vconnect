@@ -29,30 +29,38 @@
             }
         }
     }
-    .profileInfo{
+    .profileInfo {
         width: fit-content;
         margin: auto;
         margin-top: 30px;
         font-size: 1.5rem;
-        table{
+        table {
             margin: auto;
             border-collapse: collapse;
-            
-            td,th{
+
+            td,
+            th {
                 padding: 10px 20px;
 
-                img{
+                img {
                     width: 30px;
                     height: 30px;
                     border-radius: 50%;
                 }
             }
-        }            
+        }
     }
 }
 
-.postsContainer{
+.postsContainer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 10px;
+}
+.noPosts {
+    text-align: center;
+    font-size: 1.5rem;
+    margin: auto;
+    margin-top: 30px;
+    color: rgb(52, 52, 52);
 }

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useGlobalContext } from "../../context/useGlobalContext";
 
 function Header({ id }) {
-    const { user } = useGlobalContext();
+    const { user = {} } = useGlobalContext();
     return (
         <header className={styles.headerContainer}>
             <div className={styles.header}>
@@ -14,10 +14,11 @@ function Header({ id }) {
                     </div>
                 </Link>
                 <div className={styles.authButtons}>
-                    <Link to='/auth'>
-                        <button>Logout</button>
-                    </Link>
-                    <Link to={`/profile/${user.id}`}>
+                    <button onClick={() => {
+                        localStorage.removeItem('auth');
+                        window.location.href = '/';
+                    }}>Logout</button>
+                    <Link to={`/profile/${user?._id}`}>
                         <div className={styles.profile}>
                             <img src='/images/profile.jpg' alt="profile" />
                         </div>
